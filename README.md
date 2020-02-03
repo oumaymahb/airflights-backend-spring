@@ -82,22 +82,22 @@ Our API should return a json array containing the following schema:
 Beyong these basic features, we will be interested in finding out how you would handle the following use cases / scenarios:
 
 * Provider Air Moon frequently takes a long time to respond (but it does send back data). Depending on the way you developed the API it may have performance impacts on the whole search. How would you take care of this ?
-  -implement parallel calls using @Async annotation: For a brief, when we annotate a method of a bean @Async annotation, Spring will execute it in a separate thread and the caller of the method will not wait till the method is completed execution.
-  -use spring caching mechanism : Caching of frequently used data in application is a very popular technique to increase performance of application. With caching, we store such frequently  accessed data in memory to avoid hitting the costly backends every time when user requests the data. Data access from memory is always faster in comparison to fetching from storage like database, file system or other service calls.
+   -implement parallel calls using @Async annotation: For a brief, when we annotate a method of a bean @Async annotation, Spring will execute it in a separate thread and the caller of the method will not wait till the method is completed execution.
+   -use spring caching mechanism : Caching of frequently used data in application is a very popular technique to increase performance of application. With caching, we store such frequently  accessed data in memory to avoid hitting the costly backends every time when user requests the data. Data access from memory is always faster in comparison to fetching from storage like database, file system or other service calls.
   
 * Provider Air Jazz has downtime issues from time to time, and returns a HTTP 502 Bad Gateway error. Once again, how would you handle this so it does not penalize the whole API.
-  -I handled error in every api call so if Air Jazz has downtime issues that will not affect the result of the other apis.
+   -I handled error in every api call so if Air Jazz has downtime issues that will not affect the result of the other apis.
   
 * The API we just created is to be used by our partners. How would you handle security ? We need to make sure only authenticated users (and authorized) can access this API.
-  -Use OpenID Connect for Authentication: OAuth 2.0 is the industry-standard protocol for authorization. It uses scopes to 
+   -Use OpenID Connect for Authentication: OAuth 2.0 is the industry-standard protocol for authorization. It uses scopes to 
 define permissions about what actions an authorized user can perform. However, OAuth 2.0 is not an authentication protocol and 
 provides no information about the authenticated user.
 
 * We would want to rate limit our API, so each of our client has a limited number of allowed calls. How would you handle this ?
-  -we can use Throttling:it is the process of limiting the rate that an API is being used in a server. It limits the number of service requests.
+   -we can use Throttling:it is the process of limiting the rate that an API is being used in a server. It limits the number of service requests.
 
  *Imagine we now have a lot of incoming traffic on our API, and there is some overlap on the search requests. How could we improve the program ?
-  - we can improve the program by using a cache .
+    - we can improve the program by using a cache .
 Anything that you think could be relevant....
 Key points
 The key points we will be looking at are:
